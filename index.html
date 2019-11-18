@@ -1,20 +1,26 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="/css/css.css">
+  <meta charset="utf-8">
+  <title>Current Weather</title>
 </head>
 <body>
-    <fieldset>
-    <form action="/" method="post">
-    <input name="city" type="text" class="ghost-input" placeholder="Enter a City" required>
-    <input type="submit" class="ghost-button" value="Get Weather">
-    </form>
-    </fieldset>
-    <script src="script.js"></script>
+    <div class="input">
+        <input type="text" placeholder="Enter the city" class="input_text">
+        <input type="submit" value="Submit" class="submit">
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="card">
+        <h1 class="name" id="name"></h1>
+        <p class="temp"></p>
+        <p class="clouds"></p>
+        <p class="desc"></p>
+        </div>
+    </div>
+  <script lang="text/javascript" src="script.js">
+    // future javascript
+  </script>
 </body>
 </html>
