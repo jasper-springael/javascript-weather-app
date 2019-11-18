@@ -44,8 +44,8 @@ fetch('https://api.openweathermap.org/data/2.5/weather?q='+input.value+'&appid='
   desc.innerHTML = "Desc - "+descValue;
   temp.innerHTML = "Temp - "+tempValue;
   input.value ="";
-
 })
 
-.catch(err => alert("Wrong city name!"));
-})
+
+    .catch(err => alert("Wrong city name!"));
+    })
