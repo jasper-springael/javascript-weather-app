@@ -3,12 +3,8 @@ let button = document.querySelector('.submit');
 let container1 = document.querySelector(".container1");
 const key = '2bb393aebb088dea340a936c4e15a222';
 let today = new Date();
-today = today.toLocaleDateString();
+today = today.toLocaleDateString('en-US',{weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'});
 
-let today2 = new Date();
-console.log(today);
-//console.log(weekday);
-let weekArray = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
 button.addEventListener("click", function(){
     getWeather();
@@ -26,10 +22,8 @@ async function getWeather() {
             headerCity.append(dateHeader);
             dateHeader.innerHTML = `Today's date is: ${today}`;
 
-            let weekday = today2.getDay();
-            let weekDayDay = weekArray[weekday];
-            console.log(weekDayDay);
-
+            
+            //for loop
             for (let i = 0; i < res.length; i+=8) {
                 console.log(res[i]);
 
@@ -39,26 +33,27 @@ async function getWeather() {
                     let desc = `${res[i]['weather'][0]['description']}`;
                     let icon = `http://openweathermap.org/img/w/${res[i]['weather'][0].icon}.png`;
                     let wind = `${res[i]['wind']['speed']}`;
-                    let currentDay = weekDayDay;
-                    weekday++;
-                    //et date2 = date.getDay();
+                    let date = `${res[i]['dt_txt']}`;
+                    date = date.toString();
+                    console.log(typeof date);
                     
-                    //console.log(date);
                     let newDiv = document.createElement("div");
-                    let newContent = document.createTextNode(temp+ ' '+desc);
+                    let dateP = document.createElement("span");
+                    let newContent = document.createTextNode(' Temperature: '+ temp+ ' '+desc);
                     let iconImage = document.createElement("img");
                     iconImage.src = icon;
-                    let windSpeed = document.createTextNode(wind + ' m/s ');
-                    let dateValue = document.createTextNode(currentDay);
-
+                    let windSpeed = document.createTextNode('Windspeed: ' +wind + ' m/s ');
+                    
+                    dateP.innerHTML= date.slice(0,10);
+                    newDiv.append(dateP);
+                    
                     newDiv.appendChild(newContent);
                     newDiv.append(iconImage);
                     newDiv.append(windSpeed);
-                    newDiv.append(dateValue);
+                    
                     container1.appendChild(newDiv);
                 })();//end of makeElement function
             }//end of for loop
         };//end of getWeather function
 
 
-        //`http://openweathermap.org/img/w/${data.weather[0].icon}.png`;
