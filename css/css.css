@@ -1,8 +1,48 @@
 * {
-    font-size: 1.5rem;
+    font-size: 1rem;
+    font-family: monospace;
+    background-color: cadetblue;
 }
+.box1{
+    display: flex;
+    margin-top: 1rem;
 
+}
+.box2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 img {
-    width: 100px;
+    width: 150px;
     height: auto;
+    
+}
+.miniBox{
+    border: black;
+}
+h1{
+    font-size: 1.75rem;
+    text-transform: capitalize;
+}
+h2{
+    font-size: 1.25rem;
+}
+div{
+    font-size: 2rem;
+}
+.input_text{
+    font-size: 4rem;
+    text-transform: capitalize;
+    background-color: grey;
+    margin-top: 1rem;
+}
+.submit{
+    background-color: blue;
+    color: white;
+    font-size: 2rem;
+    width: 15rem;
+    height: 5rem;
+    border-radius: 5%;
+    
 }
