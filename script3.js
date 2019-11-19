@@ -4,7 +4,11 @@ let container1 = document.querySelector(".container1");
 const key = '2bb393aebb088dea340a936c4e15a222';
 let today = new Date();
 today = today.toLocaleDateString();
+
+let today2 = new Date();
 console.log(today);
+//console.log(weekday);
+let weekArray = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
 button.addEventListener("click", function(){
     getWeather();
@@ -22,6 +26,10 @@ async function getWeather() {
             headerCity.append(dateHeader);
             dateHeader.innerHTML = `Today's date is: ${today}`;
 
+            let weekday = today2.getDay();
+            let weekDayDay = weekArray[weekday];
+            console.log(weekDayDay);
+
             for (let i = 0; i < res.length; i+=8) {
                 console.log(res[i]);
 
@@ -31,15 +39,17 @@ async function getWeather() {
                     let desc = `${res[i]['weather'][0]['description']}`;
                     let icon = `http://openweathermap.org/img/w/${res[i]['weather'][0].icon}.png`;
                     let wind = `${res[i]['wind']['speed']}`;
-                    let date = `${res[i]['dt_txt']}`;
+                    let currentDay = weekDayDay;
+                    weekday++;
                     //et date2 = date.getDay();
-                    console.log(date);
+                    
+                    //console.log(date);
                     let newDiv = document.createElement("div");
                     let newContent = document.createTextNode(temp+ ' '+desc);
                     let iconImage = document.createElement("img");
                     iconImage.src = icon;
                     let windSpeed = document.createTextNode(wind + ' m/s ');
-                    let dateValue = document.createTextNode(date);
+                    let dateValue = document.createTextNode(currentDay);
 
                     newDiv.appendChild(newContent);
                     newDiv.append(iconImage);
