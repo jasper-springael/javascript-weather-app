@@ -44,3 +44,24 @@ document.querySelector(".forecast").addEventListener('click', function (name) {
                         console.log(data);
                     })
                 });
+
+                /*arrayTemp.push(res[i]['main']['temp']);
+                arrayDesc.push(res[i]['weather'][0]['description']);
+                arrayWind.push(res[i]['wind']['speed']);
+
+                //temp.innerHTML = "Temperature - " + arrayTemp[1] + "°";
+                desc.innerHTML = "Description - " + arrayDesc[1];
+                windSpeed.innerHTML = 'windspeed: ' + arrayWind[1] + ' m/s';
+
+                document.querySelector('.temp1').innerHTML = arrayTemp[0];
+                document.querySelector('.temp2').innerHTML = arrayTemp[1];
+                document.querySelector('.temp3').innerHTML = arrayTemp[2];
+                document.querySelector('.temp4').innerHTML = arrayTemp[3];
+                document.querySelector('.temp5').innerHTML = arrayTemp[4];
+
+                document.querySelector('.date1').innerHTML = arrayTemp[0];
+                document.querySelector('.date2').innerHTML = arrayTemp[1];
+                document.querySelector('.date3').innerHTML = arrayTemp[2];
+                document.querySelector('.date4').innerHTML = arrayTemp[3];
+                document.querySelector('.date5').innerHTML = arrayTemp[4];
+            }*/
