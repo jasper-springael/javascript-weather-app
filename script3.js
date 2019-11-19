@@ -9,39 +9,38 @@ let minMaxTemperature = document.querySelector(".minMaxTemp");
 let windSpeed = document.querySelector(".windSpeed");
 const key = '2bb393aebb088dea340a936c4e15a222';
 
+button.addEventListener("click", function(){
+    getWeather();
+});
 
-button.addEventListener('click', function (name) {
-    fetch('https://api.openweathermap.org/data/2.5/forecast?q=' + input.value + '&appid=' + key + '&units=metric')
-        .then(response => response.json())
-        .then(data => {
-            var tempValue = Math.floor(data['main']['temp']);
-            var nameValue = data['name'];
-            var descValue = data['weather'][0]['description'];
-            var iconValue = `http://openweathermap.org/img/w/${data.weather[0].icon}.png`;
-            var minTempValue = Math.floor(data['main']['temp_min']);
-            var maxTempValue = Math.floor(data['main']['temp_max']);
-            var windValue = data['wind']['speed'];
+async function getWeather() {
+    const response = await fetch('https://api.openweathermap.org/data/2.5/forecast/?q=' + input.value + '&appid=' + key + '&units=metric');
+    const data = await response.json();
+            //console.log(data);
+            //console.log(data.list[0].main['temp']);
+            //data.list.forEach(item => {
+                //console.log(item.main['temp']);
+                
+            //});
+            let arrayTemp = [];
+            let arrayDesc = [];
+            //let arrayMinTemp = [];
+            //let arrayMaxTemp = [];
+            let arrayWind = [];
 
-            main.innerHTML = nameValue;
-            desc.innerHTML = "Description - " + descValue;
-            temp.innerHTML = "Temperature - " + tempValue + "°";
-            input.value = "";
-            icon.setAttribute("src", iconValue);
-            minMaxTemperature.innerHTML = 'min ' + minTempValue + '°' + '/' + 'max ' + maxTempValue + '°';
-            windSpeed.innerHTML = 'windspeed: ' + windValue + ' m/s';
-            console.log(data);
-        })
+            for (let i = 0; i < data.list.length; i+=8) {
+                console.log(data.list[i]);
 
-        .catch(err => alert("Wrong city name!"));
-})
+                arrayTemp.push(data.list[i]['main']['temp']);
+                arrayDesc.push(data.list[i]['weather'][0]['description']);
+                
+                arrayWind.push(data.list[i]['wind']['speed']);
+                temp.innerHTML = "Temperature - " + arrayTemp[1] + "°";
+                desc.innerHTML = "Description - " + arrayDesc[1];
+                windSpeed.innerHTML = 'windspeed: ' + arrayWind[1] + ' m/s';
 
-//5 day forecast
-/*document.querySelector(".forecast").addEventListener('click', function (name) {
-                fetch('https://api.openweathermap.org/data/2.5/forecast?q=' + input.value + '&appid=' + key + '&units=metric')
-                    .then(response => response.json())
-                    .then(data => {
-                        
-                        console.log(data);
-                    })
-                });
-                */
+                
+            }
+            }
+
+
