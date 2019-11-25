@@ -1,0 +1,98 @@
+* {
+    font-family: monospace;
+    background-color: cadetblue;
+}
+
+img{
+    width: 150px;
+    height: auto;
+}
+
+
+
+h1{
+    font-size: 2.75rem;
+    text-transform: capitalize;
+}
+
+h2{
+    font-size: 2.25rem;
+}
+
+
+.container-fluid{
+    margin: 0 auto;
+    &__top{
+        margin: 0 auto;
+        
+    }
+}
+.row{
+    margin: 0 auto;
+    width: 100vw;
+    
+    &__submitBtn{
+        width: 100vw;
+        
+    }
+}
+
+.input_text{
+    font-size: 4rem;
+    text-transform: capitalize;
+    color: #fff;
+    background-color: rgb(85, 83, 83);
+    margin: 1rem;
+    width: 50vw;
+    max-width: 70rem;
+    min-width: 50rem;
+    border-radius: 15px;
+    padding: 2.5rem;
+    &::placeholder{
+        color: #fff;
+        padding: 2.5rem;
+    }
+
+}
+
+.submit{
+    background-color: rgb(5, 5, 189);
+    color: white;
+    font-size: 3rem;
+    width: 20rem;
+    height: auto;
+    border-radius: 25px;
+    padding: 1rem;
+    margin-left: 15rem;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+    &:focus{
+        outline: none;
+        color: rgb(5, 5, 189);
+        background-color: #fff;
+    }
+    
+    
+}
+
+.box2{
+    width: 100vw;
+    margin: 0 auto;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+}
+.miniBox{
+    font-size: 2rem;
+    font-weight: bold;
+    border: 10px solid rgb(238, 233, 233);
+    border-radius: 15px;
+    flex: 1;
+    padding: 1rem;
+    width: 40rem;
+    height: auto;
+    margin: 2rem auto;
+}
+.box1{
+    font-size: 2rem;
+}

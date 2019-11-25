@@ -10,7 +10,7 @@ today = today.toLocaleDateString('en-US',{weekday: 'long', year: 'numeric', mont
 
 button.addEventListener("click", function(){
     getWeather();
-});
+},{once: true});
 
 async function getWeather() {
     const response = await fetch('https://api.openweathermap.org/data/2.5/forecast/?q=' + input.value + '&appid=' + key + '&units=metric');
@@ -52,7 +52,7 @@ async function getWeather() {
                     iconImage.src = icon;
 
                     let windSpeedEl = document.createElement("div");
-                    windSpeedEl.innerHTML = 'Windspeed: ' +wind + ' m/s ';
+                    windSpeedEl.innerHTML = 'Windspeed: ' + wind + ' m/s ';
                     
                     dateP.innerHTML= date.slice(0,10);
 
